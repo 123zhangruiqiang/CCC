@@ -19,7 +19,7 @@
             <input type="button" id="btn" value="提交">
 
         </form>
-    <%--测试git--%>
+
 </body>
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script>
