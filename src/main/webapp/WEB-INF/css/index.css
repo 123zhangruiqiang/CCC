@@ -1,0 +1,192 @@
+*{
+
+    margin:0px;
+    padding:0px;
+
+}
+body{
+
+    font-family:微软雅黑;
+    font-size: 15px;
+}
+
+.top{
+    background: #CACACA;
+    border-bottom: 1px solid #333333;
+
+}
+.top .text{
+    width:950px;
+    height:30px;
+    margin:0 auto;
+    background: #CACACA;
+
+}
+
+.top .left{
+    float:left;
+    line-height: 30px;
+}
+.top .right {
+    float:right;
+}
+
+.top .right ul li{
+    float:left;
+    list-style: none;
+    background: url("../images/sj.png") no-repeat right;
+
+}
+.top .right ul li a{
+    text-decoration: none;
+    line-height: 30px;
+    margin-right: 10px;
+    color: #222222;
+    display: inline-block;
+}
+
+.search{
+    width:950px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.search .log{
+    float: left;
+    margin-top: 10px;
+}
+.search .ser{
+    border:1px solid #863E01;
+    float:right;
+    margin-top: 35px;
+}
+.ser input[type="text"]{
+    width:300px;
+    height:40px;
+    float:left;
+    margin:5px 0 5px 5px;
+}
+.ser input[type="button"]{
+    width:100px;
+    height:33px;
+    float:left;
+    margin:5px 5px 5px 0;
+    background: url("../images/serch.png") no-repeat;
+
+}
+
+.nav{
+    width:950px;
+    margin:0 auto;
+    border-bottom: 3px solid #0266A3;
+    overflow: hidden;
+}
+.nav ul li{
+    list-style: none;
+    float: left;
+
+}
+.nav ul li a{
+    text-decoration: none;
+    display: inline-block;
+    color:#222222;
+    height:30px;
+    line-height: 30px;
+    padding:0 16px;
+    margin-top:10px;
+}
+.nav ul li a:hover{
+    background: #0266A3;
+    color:#ffffff;
+}
+
+.banner{
+
+    width:950px;
+    margin:10px auto;
+    overflow: hidden;
+
+}
+
+.banner .left{
+
+    width:200px;
+    float: left;
+}
+.banner .top_title{
+    height:28px;
+    width:200px;
+    line-height: 28px;
+    padding-left: 10px;
+    color:#ffffff;
+    background: #0266A3;
+
+
+}
+.banner .left ul li{
+
+    list-style: none;
+    background: url("../images/icon_1.png") no-repeat 9px;
+    padding-left: 40px;
+    height:28px;
+    line-height: 28px;
+}
+.banner .left ul li a{
+    text-decoration: none;
+    color:black;
+}
+.banner .center {
+    width:500px;
+    float:left;
+
+}
+.banner .right{
+
+    float:right;
+}
+.banner .right .xia{
+    margin-top: 5px;
+}
+
+.middle{
+    width:930px;
+    margin:10px auto;
+    height:40px;
+    background: #CACACA;
+    border-top: 2px solid #333333;
+    line-height: 40px;
+    padding-left: 20px;
+
+}
+
+.jianzhu{
+    width:950px;
+    margin:10px auto;
+    background:white;
+}
+.jianzhu .left{
+    width:700px;
+
+}
+.jianzhu .left .top{
+
+    background: white;
+    width:300px;
+
+
+}
+.jianzhu .left .top .img{
+    float:left;
+}
+.jianzhu .left .top .text{
+    width:60px;
+    height:160px;
+    background:black;
+    flaot:left;
+
+
+}
+.jianzhu .left .top .but input{
+    background: url("../images/buy.png");
+    height:90px;
+    width:26px;
+}
