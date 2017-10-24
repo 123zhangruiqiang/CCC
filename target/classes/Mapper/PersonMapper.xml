@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="Mapper.PersonMapper">
+<!-- 定义sql片段是为了可重用性，基于单表来定义 -->
+<sql id="query_person_where">
+	<if test="personCustom!=null">
+		<if test="personCustom.gender!=null and personCustom.gender!=''">
+				and p.gender=#{personCustom.gender}		
+		
+		</if>
+		<if test="personCustom.name!=null and personCustom.name!=''">
+				and p.name=#{personCustom.name}
+		
+		</if>
+		<if test="ids!=null">
+			<!-- <foreach collection="ids" close=")" item="person_id" open="AND(" separator="or">
+					id=#{person_id}
+				
+			</foreach> -->
+			
+			<foreach collection="ids" close=")" item="person_id" open="AND ID IN(" separator=",">
+					#{person_id}
+				
+			</foreach>
+		</if>
+	
+	</if>
+
+</sql>
+
+
+<sql id="query_person_num">
+		
+		<if test="personCustom!=null">
+			<if test="ids!=null">
+		
+			
+			<foreach collection="ids" close=")" item="person_id" open="AND ID IN(" separator=",">
+					#{person_id}
+				
+			</foreach>
+		</if>
+		</if>
+
+
+</sql>
+
+
+<!-- 定义resultmap -->
+ <resultMap type="Person" id="result">
+ 
+ 		<id column="id_" property="id"/>
+ 		<result column="name_" property="name"/>
+ 
+ </resultMap>
+
+	<select id="findPersonById" parameterType="int" resultType="Person">
+	
+			select * from person where id =#{id}
+	</select>
+	<select id="findPersonByIdResultMap" parameterType="int"  resultMap="result">
+	
+			select id id_,name name_ from person where id =#{id}
+	</select>
+
+	<select id="findPersonList" parameterType="PersonQueryVo" resultType="PersonCustom" >
+	
+	<!-- WHERE person.gender=#{personCustom.gender} and person.name like '%${personCustom.name}%' -->
+	SELECT * FROM person p
+	<where>
+	<!-- <if test="personCustom!=null">
+		<if test="personCustom.gender!=null and personCustom.gender!=''">
+				and p.gender=#{personCustom.gender}		
+		
+		</if>
+		<if test="personCustom.name!=null and personCustom.name!=''">
+				and p.name=#{personCustom.name}
+		
+		</if>
+	
+	</if> -->
+	<!-- 如果引用的id不在本mapper文件当中，前面需要加入namespac修饰 -->
+	<include refid="query_person_where"></include>
+	<!--在这里还要引用其他的事务片段  -->
+	</where>
+	
+	</select>
+
+<select id="findPersonCount" parameterType="PersonQueryVo" resultType="int" >
+	
+	
+	SELECT count(*) FROM person WHERE person.gender=#{personCustom.gender} and person.name like '%${personCustom.name}%'
+	
+	
+	
+	</select>
+	
+	<select id="findPersonListById" parameterType="PersonQueryVo" resultType="PersonCustom">
+			select * from person p
+			<where>
+			  	
+			<include refid="query_person_num"></include>
+			
+			</where>
+	
+	
+	</select>
+
+	<update id="updatePerson" parameterType="Person" >
+
+		update person set name=#{name} where id=1
+
+
+	</update>
+
+</mapper>
