@@ -14,14 +14,19 @@ import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
+import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.executor.ReuseExecutor;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import Service.imp.PersonServiceImp;
-
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Type;
@@ -29,16 +34,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 import static javafx.scene.input.KeyCode.T;
 
 @Controller
 public class IndexController {
 	@Autowired
 	private PersonServiceImp pi;
-
+	private static final Logger logger=LogManager.getLogger(IndexController.class);
 	@RequestMapping("/index")
 	public String show(Model model, HttpSession session){
-		
+
+		logger.setLevel(Level.INFO);
+		logger.info("这是log4j的日志输出");
+		logger.debug("这是log4j的debug输出");
 		Person p=pi.findPersonByIdResultMap(1);
 		System.out.println(p.getAge());
 		model.addAttribute("Person",p);
