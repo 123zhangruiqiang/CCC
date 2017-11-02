@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CCC.iml" filepath="$PROJECT_DIR$/CCC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../excelutils/excelutils.iml" filepath="$PROJECT_DIR$/../excelutils/excelutils.iml" />
     </modules>
   </component>
 </project>

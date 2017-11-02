@@ -21,7 +21,6 @@ public class HttpClientPostForm extends  HttpClientAbs {
 
     public String execute(String url) {
         HttpPost httpPost=null;
-
         httpPost=new HttpPost(url);
         httpPost.setConfig(requestConfig);
 

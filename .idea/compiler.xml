@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CCC" />
+        <module name="excelutils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CCC" target="1.5" />
+      <module name="excelutils" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
