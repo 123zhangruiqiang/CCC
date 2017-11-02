@@ -1,8 +1,11 @@
 package SpController;
 
+import Utils.IpHost;
+import Utils.Rpath;
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,10 +23,13 @@ public class UpdateController {
         return "updateFile";
     }
     @RequestMapping(value = "/doFile1",method = RequestMethod.POST)
-    public  String doFile(@RequestParam("file") MultipartFile file){
+    public  String doFile(@RequestParam("file") MultipartFile file, Model model){
 
         String filename=file.getOriginalFilename();
-        String path="C:\\Users\\zhangruiqiang\\Desktop\\image";
+
+        String path= Rpath.rfPath(IpHost.getCurrentFile());
+        logger.info(path);
+        //C:\Users\Administrator\Desktop\image
         File fil=new File(path,filename);
         try {
             file.transferTo(fil);
@@ -31,7 +37,8 @@ public class UpdateController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "success";
+        model.addAttribute("file",file.getOriginalFilename());
+        return "download";
     }
 
 }
