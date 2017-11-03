@@ -1,4 +1,4 @@
-package java;
+package jd;
 
 import org.junit.Test;
 import org.yaml.snakeyaml.Yaml;
