@@ -13,6 +13,7 @@ public class YmlTest {
         System.out.println("hahahhaha");
         URL url=YmlTest.class.getClassLoader().getResource("");
         System.out.println(url);
+        System.out.println("c:\\user\\zhangruiqiang");
     }
 
 }

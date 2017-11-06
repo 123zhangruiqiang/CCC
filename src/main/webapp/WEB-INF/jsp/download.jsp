@@ -15,7 +15,7 @@
 <body>
     <div>
         <h1>文件下载</h1>
-        <a href="${pageContext.request.contextPath}/image/${file}">图片下载</a>
+        <a href="${pageContext.request.contextPath}/dw?file=${file}">${file}</a>
         <a href="http://localhost:8082/CCC/image/03f102a3-782c-45d3-b7c2-4d23ff0baaae.jpg">ssss</a>
     </div>
 
